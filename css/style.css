@@ -1,0 +1,448 @@
+/**
+ * Basic elements
+ */
+
+* {
+	margin:0;
+	padding:0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	position: relative;
+	overflow: hidden; /* prevent scroll bars */
+	background: #222;
+	color:#fff;
+
+	/* disable user selection */
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	-ms-user-select:none; 
+	user-select:none;
+}
+
+canvas { 
+	width: 100%; 
+	height: 100% ; 
+	background: #fff; 
+	z-index: 0 !important;
+	cursor: move;
+}
+
+h1,
+h2,
+h3,
+ul,
+ol,
+p {
+	margin-bottom: 20px;
+	font-weight: normal;
+}
+
+h4 {
+	margin-top: 10px;
+	font-weight: normal;
+}
+
+ul {
+	margin-left: 25px;
+}
+
+
+nav ul {
+	list-style-type: none;
+	text-align: center;
+}
+
+ul.scene {
+	font-size: 14px;
+	
+	line-height: 150%;
+}
+
+ul.settings {
+	list-style-type: none;
+	
+}
+
+a {
+	font-size: 14px;
+	color:#AAA;
+	text-decoration: none;
+}
+
+a:hover {
+	color:#DF7401;
+}
+
+form {
+	margin-top: 10px;
+}
+
+label {
+	display: inline-block;
+	width:90px;
+	font-size: 11px;
+}
+
+input {
+	padding:3px 5px;
+	border:none;
+	background: none;
+	color: #FF8000;
+}
+
+
+input[type="color"] {
+	width:110px;
+	border:none;
+	padding: 0;
+	margin: 5px 0px;
+	margin-left: 20px;
+}
+
+input[type="text"] {
+	background: #fff;
+	color:#333;
+}
+
+input[type="number"] {
+	width:50px;
+	cursor: w-resize;
+}
+
+input[type="submit"] {
+	width:200px;
+	margin: 10px auto;
+	background: #DF7401;
+	color:#fff;
+}
+
+/* hide spinners:
+http://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box;
+<input type="text" pattern="[0-9]*" />
+*/
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+/**
+ * ID's
+ */
+
+#noJS {
+	text-align: center;
+	padding-top: 60px;
+	height:2000px;
+	width:100%;
+	z-index: 100;
+	background: #222;
+}
+
+#overlay h3 {
+	text-align: center;
+}
+
+#overlay h3 a{
+	cursor: pointer;
+	padding: 5px 10px;
+	font-size: 16px
+}
+
+#save {
+	text-align: center;
+	line-height: 150%;
+}
+
+#save label {
+	width:180px;
+}
+
+#save span {
+	color: #AAA;
+}
+
+#pickerOverlay {
+	position: absolute;
+	top:200px;
+	left:200px;
+	background: rgba(40,40,40,0.8);
+	font-size: 13px;
+	padding: 5px 10px;
+}
+
+#pickerOverlay strong {
+	color: #FF8000;
+}
+
+#overlay {
+	width:100%;
+	height:100%;
+	
+	/* gradient instead?*/
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+	position: absolute;
+	top:-3000px;
+	left: 0;
+	overflow: auto;
+	z-index:2;
+}
+
+#overlayContent {
+	background: #333;
+	width: 80%;
+	margin-left: 35%;
+	margin-top: 20px;
+	padding: 10px 20px;
+	position: relative;
+	max-width: 400px;
+	opacity: 0.9; 
+}
+
+#overlayContent p {
+	font-size: 13px;
+	text-align: justify;
+}
+
+#author {
+	font-size: 11px;
+	color:#999;
+	text-align: center !important;
+}
+
+.description {
+	color:#999;
+	font-size: 11px;
+	margin-top: -5px;
+	line-height: 130%;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+#switch {
+	display:none;
+	position: absolute;
+	top:0;
+	left:50%;
+	margin-left: -25px;
+	margin-top: -10px;
+	padding-top: 8px;
+	height: 33px;
+	width: 50px;
+	border-radius: 10px;
+	background: #ffffff;
+	border:2px solid #7a7f99;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+#quickAdd {
+	display:none;
+	color:#666;
+	font-size: 12px;
+	position: absolute;
+	top:0;
+	left:0%;
+	margin-top: -2px;
+	padding:5px 10px;
+	background: #ffffff;
+	border-right:1px solid #7a7f99;
+	border-bottom:1px solid #7a7f99;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+#quickAdd a{
+	color:#333;
+	margin: 0 4px;
+}
+
+#quickAdd a:hover{
+	color:#DF7401;
+	margin: 0 4px;
+}
+
+#overlay #close {
+	position: absolute;
+	right:20px;
+	top:10px;
+	cursor: pointer;
+	font-size: 30px;
+}
+
+#overlay #close:hover {
+	color:#DF7401;
+}
+
+#shortcuts {
+	display:none;
+	background: none;
+	font-size: 11px;
+	width:200px;
+	position: absolute;
+	left:40px;
+	top:40px;
+	z-index: 1;
+	line-height: 200%;
+	color:#333;
+	cursor: default;
+}
+
+#shortcuts span {
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+#editorClose {
+	cursor: pointer;
+	float:right;
+}
+
+#editorClose span{
+	font-weight: normal;
+}
+
+
+#pickerOverlay span {
+	color: #AAA;
+}
+
+#pickerOverlay input[type='submit'] {
+	margin:0 auto;
+}
+
+/**
+ * Classes
+ */
+.orange {
+	color:#DF7401;
+}
+
+ul.geometry a {
+	color:#fff;
+}
+
+ul.geometry a:hover {
+	color:#DF7401;
+}
+
+.vec3 input {
+	width: 35px;
+}
+
+.stroke {
+	text-decoration: line-through;
+}
+
+.success {
+	position: absolute;
+	z-index: 3;
+	background: rgba(209,140,0,0.7);
+	top:20px;
+	left:40px; 
+	padding: 10px;
+	border:1px solid #dc9a1b;
+	color: #fff;
+}
+
+.error {
+	position: absolute;
+	z-index: 3;
+	background: rgba(178,30,30,0.7);
+	top:20px;
+	left:40px;
+	padding: 10px;
+	border:1px solid #F66;
+	color: #fff;
+}
+
+.thin {
+	font-weight: normal;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.helpLabel {
+	background: #DF7401;
+	color: #fff;
+	font-size: 11px;
+	padding: 2px 4px;
+	margin-bottom: 2px;
+}
+
+.helpLabel:hover {
+	background: #D06000;
+	color: #fff;
+}
+
+.color {
+	border:1px solid rgba(10,10,10,0.4);
+	margin-right: 5px;
+	margin-top: -3px;
+	font-size:10px;
+}
+
+/* scene object list delete */
+.delete {
+	cursor: pointer;
+}
+
+/* overlay delete current */
+.deleteCurrent {
+	background: #CC4545;
+	padding: 3px 10px;
+	color:#fff;
+	border:none;
+	margin-left: 5px;
+}
+
+
+/*  from http://tobiasahlin.com/spinkit/  */
+.spinner {
+  width: 50px;
+  height: 50px;
+  background-color: #DF7401;
+  margin: 30px auto;
+
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
