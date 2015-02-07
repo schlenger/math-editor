@@ -2,6 +2,10 @@
 
 A simple three.js based editor for math scenes.
 
+http://math.zumschlenker.de/screen.png
+
+
+
 ## Given Features
 - create, edit, save and load scenes
 - create sample scenes as the given epipolar geometry
