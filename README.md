@@ -2,9 +2,7 @@
 
 A simple three.js based editor for math scenes.
 
-http://math.zumschlenker.de/screen.png
-
-
+![Sample Screenshot](http://math.zumschlenker.de/screen.png "Sample Screenshot")
 
 ## Given Features
 - create, edit, save and load scenes
